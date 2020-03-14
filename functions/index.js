@@ -7,7 +7,7 @@ exports.scrape = functions.https.onRequest(async (request, response) => {
   let urls = null;
   
   try {
-    browser = await puppeteer.launch();  
+    browser = await puppeteer.launch({args: ['--no-sandbox']});
     // Do stuff with headless chrome
     const page = await browser.newPage();
     await page.goto(molUrl); 
